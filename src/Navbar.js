@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-
+import "./nav.css";
 function Navbar(props) {
   const [navActive, setNavActive] = useState(false);
 
@@ -22,6 +22,11 @@ function Navbar(props) {
             <li className="nav-item">
               <a href="/#" className="nav-link">
                 FIND A TEAM
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="/#" className="nav-link">
+                LOGIN
               </a>
             </li>
           </ul>

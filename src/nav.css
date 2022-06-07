@@ -2,13 +2,6 @@
   --primary: #fa4753;
   --solid: #161616;
 }
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: lato, serif;
-}
 
 li {
   list-style: none;

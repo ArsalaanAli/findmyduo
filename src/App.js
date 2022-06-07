@@ -1,12 +1,14 @@
-import "./nav.css";
+import "./App.css";
+
 import { React } from "react";
 import Navbar from "./Navbar";
-import "./App.css";
+import Frontpage from "./Frontpage";
 
 function App() {
   return (
     <div className="App">
       <Navbar loggedIn={false} />
+      <Frontpage />
     </div>
   );
 }
