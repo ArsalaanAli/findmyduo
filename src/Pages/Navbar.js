@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { Link } from "react-router-dom";
 import "./nav.css";
 function Navbar(props) {
   const [navActive, setNavActive] = useState(false);
@@ -10,24 +11,24 @@ function Navbar(props) {
     return (
       <header className="header">
         <nav className="navbar">
-          <a href="/#" className="nav-logo">
+          <Link to="/" className="nav-logo">
             FINDMY
-          </a>
+          </Link>
           <ul className={"nav-menu" + (navActive ? " active" : "")}>
             <li className="nav-item">
-              <a href="/#" className="nav-link">
+              <Link to="/#" className="nav-link">
                 FIND A DUO
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="/#" className="nav-link">
+              <Link to="/#" className="nav-link">
                 FIND A TEAM
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="/#" className="nav-link">
+              <Link to="/login" className="nav-link">
                 LOGIN
-              </a>
+              </Link>
             </li>
           </ul>
           <div
