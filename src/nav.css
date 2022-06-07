@@ -2,11 +2,12 @@
   --primary: #fa4753;
   --solid: #161616;
 }
-
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: lato, serif;
 }
 
 li {
@@ -16,8 +17,10 @@ li {
 a {
   text-decoration: none;
 }
+
 .header {
   background-color: #161616;
+  padding: 0.5em;
 }
 
 .navbar {
@@ -50,13 +53,28 @@ a {
 }
 
 .nav-link {
+  display: inline-block;
+  position: relative;
   font-size: 1.6rem;
   font-weight: 400;
   color: #fff;
 }
+.nav-link:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  top: 1.2em;
+  left: 0;
+  background-color: var(--primary);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
 
-.nav-link:hover {
-  color: var(--primary);
+.nav-link:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .nav-logo {
@@ -64,6 +82,16 @@ a {
   font-weight: 500;
   color: #fff;
 }
+.nav-logo {
+  font-size: 2.1rem;
+  font-weight: 500;
+  color: #fff;
+}
+.nav-logo:after {
+  content: "DUO";
+  color: var(--primary);
+}
+
 @media only screen and (max-width: 768px) {
   .nav-menu {
     position: fixed;
