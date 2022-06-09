@@ -1,9 +1,12 @@
-import { React, useEffect, useState } from "react";
+import { React, useContext, useEffect, useState } from "react";
+import { UserContext } from "../Utilities/UserContext";
 import "./Frontpage.css";
 
 function Frontpage(props) {
   const { REACT_APP_SECRET, REACT_APP_CLIENT_ID } = process.env;
-  const [userData, setUserData] = useState({});
+
+  const [user, setUser] = useContext(UserContext);
+
   useEffect(() => {
     const url = window.location.href;
     if (url.includes("?")) {
@@ -47,12 +50,13 @@ function Frontpage(props) {
     );
     const userData = await userResponse.json();
     console.log(userData);
-    setUserData(userData);
+    setUser(userData);
   };
 
   return (
     <div className="container">
-      <h1 className="title">TIRED OF TOXIC TEAMATES?</h1>
+      <h1 className="title">TIRED OF TOXIC TEAMATES? </h1>
+      {/* <h2>hello {JSON.stringify(user)}</h2> */}
       <div className="renderContainer"></div>
     </div>
   );
