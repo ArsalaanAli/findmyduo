@@ -3,7 +3,7 @@
   top: 0px;
   height: 91vh;
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .title {
@@ -22,5 +22,5 @@
   left: 50%;
   width: 50%;
   height: 100%;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }

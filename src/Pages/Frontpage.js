@@ -1,8 +1,9 @@
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 import "./Frontpage.css";
 
 function Frontpage(props) {
   const { REACT_APP_SECRET, REACT_APP_CLIENT_ID } = process.env;
+  const [userData, setUserData] = useState({});
   useEffect(() => {
     const url = window.location.href;
     if (url.includes("?")) {
@@ -14,7 +15,6 @@ function Frontpage(props) {
   }, []);
 
   const DiscordPostRequest = async (code) => {
-    console.log(REACT_APP_CLIENT_ID, REACT_APP_SECRET, code);
     let options = {
       url: "https://discord.com/api/oauth2/token",
       method: "POST",
@@ -29,10 +29,25 @@ function Frontpage(props) {
         redirect_uri: "http://localhost:3000",
       }),
     };
-    var site = await fetch("https://discord.com/api/v10/oauth2/token", options)
-      .then((response) => response.json)
-      .then((resp) => console.log(resp));
+    var site = await fetch("https://discord.com/api/v10/oauth2/token", options);
+    GetUserData(await site.json());
     return site;
+  };
+  const GetUserData = async (resp) => {
+    let options = {
+      url: "https://discordapp.com/api/users/@me",
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + resp["access_token"],
+      },
+    };
+    var userResponse = await fetch(
+      "https://discordapp.com/api/users/@me",
+      options
+    );
+    const userData = await userResponse.json();
+    console.log(userData);
+    setUserData(userData);
   };
 
   return (
