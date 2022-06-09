@@ -7,7 +7,7 @@
 }
 
 .title {
-  position: absolute;
+  position: fixed;
   margin-top: 3em;
   margin-left: 1em;
 
