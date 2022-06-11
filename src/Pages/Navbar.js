@@ -39,19 +39,23 @@ function Navbar() {
                 FIND A TEAM
               </Link>
             </li>
+
             <li className="nav-item">
-              <h2 className="username">{user["username"]}</h2>
-              <img
-                src={
-                  "https://cdn.discordapp.com/avatars/" +
-                  user["id"] +
-                  "/" +
-                  user["avatar"] +
-                  ".png"
-                }
-                className="userAvatar"
-              ></img>
+              <h2 to="/#" className="nav-link">
+                {user["username"]}
+              </h2>
             </li>
+            <img
+              src={
+                "https://cdn.discordapp.com/avatars/" +
+                user["id"] +
+                "/" +
+                user["avatar"] +
+                ".png"
+              }
+              alt="profile"
+              className="userAvatar"
+            ></img>
           </ul>
           <div
             className={"hamburger" + (navActive ? " active" : "")}

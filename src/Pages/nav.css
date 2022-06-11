@@ -123,12 +123,14 @@ a {
   }
 }
 .username {
-  float: left;
+  display: inline-block;
+  margin-right: 0;
 }
 .userAvatar {
-  float: right;
+  display: inline-block;
+  cursor: pointer;
   width: 3em;
   height: 3em;
-  margin: 0;
+  margin-left: 1em;
   padding: 0;
 }
