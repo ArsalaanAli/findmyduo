@@ -41,9 +41,9 @@ function Navbar() {
             </li>
 
             <li className="nav-item">
-              <h2 to="/#" className="nav-link">
+              <Link to="/profile" className="nav-link">
                 {user["username"]}
-              </h2>
+              </Link>
             </li>
             <img
               src={

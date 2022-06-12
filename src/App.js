@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Pages/Navbar";
 import Frontpage from "./Pages/Frontpage";
 import Login from "./Pages/Login";
+import Profile from "./Pages/Profile";
 import { UserContext } from "./Utilities/UserContext";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Frontpage />}></Route>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
           </Routes>
         </UserContext.Provider>
       </BrowserRouter>
