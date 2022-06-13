@@ -8,7 +8,7 @@ import "./nav.css";
 function Navbar() {
   const [navActive, setNavActive] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useContext(UserContext);
+  const user = useContext(UserContext)[0];
 
   useEffect(() => {
     if (user === null) {

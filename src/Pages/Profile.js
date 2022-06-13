@@ -1,26 +1,69 @@
-import { React, useState, useContext } from "react";
+import { React, useState, useContext, useEffect } from "react";
 import { UserContext } from "../Utilities/UserContext";
 import { useFormik } from "formik";
+import { ref, child, get, set, onValue } from "firebase/database";
+import databaseRef from "../Utilities/firebase";
 
 function Profile() {
   const [editing, setEditing] = useState(false);
-  const [user, setUser] = useContext(UserContext);
+  const user = useContext(UserContext)[0];
+  const [userData, setUserData] = useState({
+    riotId: "",
+    description: "",
+    rank: "",
+    competitive: true,
+  });
+
+  useEffect(() => {
+    retrieveUserData();
+  }, []);
+
+  const retrieveUserData = async () => {
+    const checkUser = (
+      await get(ref(databaseRef, "/Users/" + user["id"]))
+    ).val();
+    if (checkUser === null) {
+      addUserToDatabase();
+    } else {
+      setUserData(checkUser);
+    }
+    console.log(userData, checkUser);
+  };
+
+  const addUserToDatabase = async () => {
+    const temp = {
+      riotId: "",
+      description: "",
+      rank: "",
+      competitive: true,
+    };
+    await set(ref(databaseRef, "/Users/" + user["id"]), temp);
+  };
 
   const toggleEdit = () => {
     setEditing(!editing);
   };
 
+  const saveProfileToDatabase = async (values) => {
+    if (JSON.stringify(values) !== JSON.stringify(userData)) {
+      await set(ref(databaseRef, "/Users/" + user["id"]), values);
+    }
+  };
+
   const formik = useFormik({
-    initialValues: {
-      riotId: "",
-      description: "",
-      email: "",
-    },
+    initialValues: userData,
     onSubmit: (values) => {
       console.log(values);
+      setUserData(values);
+      saveProfileToDatabase(values);
       toggleEdit();
     },
+    enableReinitialize: true,
   });
+
+  useEffect(() => {
+    console.log(userData);
+  }, [userData]);
 
   if (!editing) {
     return (
@@ -54,6 +97,15 @@ function Profile() {
             type="text"
             onChange={formik.handleChange}
             value={formik.values.description}
+          />
+
+          <label htmlFor="rank">Rank</label>
+          <input
+            id="rank"
+            name="rank"
+            type="text"
+            onChange={formik.handleChange}
+            value={formik.values.rank}
           />
 
           <button type="submit">SAVE PROFILE</button>

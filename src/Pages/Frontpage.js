@@ -1,9 +1,7 @@
 import { React, useContext, useEffect, useRef } from "react";
-import { ref, set } from "firebase/database";
 import { UserContext } from "../Utilities/UserContext";
 import GetDiscordData from "../Utilities/GetDiscordData";
 import "./Frontpage.css";
-// import databaseRef from "../Utilities/firebase";
 
 function Frontpage(props) {
   const { REACT_APP_SECRET, REACT_APP_CLIENT_ID } = process.env;
@@ -11,7 +9,6 @@ function Frontpage(props) {
   const [user, setUser] = useContext(UserContext);
 
   useEffect(() => {
-    // console.log(databaseRef);
     const url = window.location.href;
     if (url.includes("?") && !loggedIn.current) {
       const params = new URL(url);
@@ -25,6 +22,7 @@ function Frontpage(props) {
       );
       console.log(resp);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
