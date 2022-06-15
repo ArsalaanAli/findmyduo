@@ -27,6 +27,7 @@ export default function GetDiscordData(
     if (loggedIn.current) {
       return;
     }
+
     let options = {
       url: "https://discordapp.com/api/users/@me",
       method: "GET",
@@ -39,6 +40,9 @@ export default function GetDiscordData(
       options
     );
     const userData = await userResponse.json();
+    if (!("username" in userData)) {
+      return;
+    }
     console.log(userData);
     setUser(userData);
   };

@@ -1,11 +1,15 @@
 .loginButton {
   font-size: 1em;
-  padding: 0.5em;
+  padding: 1em;
   color: #fff;
   background-color: #5865f2;
   border: 1px solid black;
   border-radius: 0.3em;
   cursor: pointer;
-  margin-left: 5em;
-  margin-top: 2em;
+  margin: 2em;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
 }

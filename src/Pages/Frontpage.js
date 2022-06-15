@@ -6,10 +6,11 @@ import "./Frontpage.css";
 function Frontpage(props) {
   const { REACT_APP_SECRET, REACT_APP_CLIENT_ID } = process.env;
   const loggedIn = useRef(false);
-  const [user, setUser] = useContext(UserContext);
+  const setUser = useContext(UserContext)[1];
 
   useEffect(() => {
     const url = window.location.href;
+    console.log(loggedIn.current);
     if (url.includes("?") && !loggedIn.current) {
       const params = new URL(url);
       const code = params.searchParams.get("code");
@@ -25,13 +26,7 @@ function Frontpage(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <div className="container">
-      <h1 className="title">A SUBTITLE </h1>
-      <h2>hello {JSON.stringify(user)}</h2>
-      <div className="renderContainer"></div>
-    </div>
-  );
+  return <h1>hello</h1>;
 }
 
 export default Frontpage;

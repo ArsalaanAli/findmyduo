@@ -10,12 +10,10 @@ function Login() {
   const [user, setUser] = useContext(UserContext);
 
   return (
-    <div>
-      {JSON.stringify(user)}
+    <div className="center">
       <button className="loginButton" onClick={discordRedirect}>
         Login With Discord
       </button>
-      <button>change user</button>
     </div>
   );
 }

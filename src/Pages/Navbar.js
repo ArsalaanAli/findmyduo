@@ -21,6 +21,10 @@ function Navbar() {
   const toggleNav = () => {
     setNavActive(!navActive);
   };
+  const navFalse = () => {
+    console.log("asd");
+    setNavActive(false);
+  };
   if (loggedIn) {
     return (
       <header className="header">

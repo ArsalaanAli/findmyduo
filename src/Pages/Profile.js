@@ -1,8 +1,9 @@
 import { React, useState, useContext, useEffect } from "react";
 import { UserContext } from "../Utilities/UserContext";
 import { useFormik } from "formik";
-import { ref, child, get, set, onValue } from "firebase/database";
+import { ref, get, set } from "firebase/database";
 import databaseRef from "../Utilities/firebase";
+import AgentSelector from "./AgentSelector";
 
 function Profile() {
   const [editing, setEditing] = useState(false);
@@ -16,6 +17,7 @@ function Profile() {
 
   useEffect(() => {
     retrieveUserData();
+    // eslint-disable-next-line
   }, []);
 
   const retrieveUserData = async () => {
@@ -27,7 +29,6 @@ function Profile() {
     } else {
       setUserData(checkUser);
     }
-    console.log(userData, checkUser);
   };
 
   const addUserToDatabase = async () => {
@@ -53,7 +54,6 @@ function Profile() {
   const formik = useFormik({
     initialValues: userData,
     onSubmit: (values) => {
-      console.log(values);
       setUserData(values);
       saveProfileToDatabase(values);
       toggleEdit();
@@ -61,9 +61,7 @@ function Profile() {
     enableReinitialize: true,
   });
 
-  useEffect(() => {
-    console.log(userData);
-  }, [userData]);
+  useEffect(() => {}, [userData]);
 
   if (!editing) {
     return (
@@ -107,7 +105,8 @@ function Profile() {
             onChange={formik.handleChange}
             value={formik.values.rank}
           />
-
+          <h1>Which Agents Do You Play?</h1>
+          <AgentSelector />
           <button type="submit">SAVE PROFILE</button>
         </form>
       </div>
