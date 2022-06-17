@@ -78,6 +78,12 @@ function Profile() {
         <h2>Rank: {userData.rank}</h2>
         <h2>RiotID: {userData.riotId}</h2>
         <h2>Description: {userData.description}</h2>
+        <h2>
+          Agents:{" "}
+          {userData.agents.map((agent) => {
+            return agent + " ";
+          })}
+        </h2>
         <button onClick={toggleEdit}>EDIT PROFILE</button>
       </div>
     );
