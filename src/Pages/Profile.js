@@ -15,13 +15,16 @@ function Profile() {
     description: "",
     rank: "",
     competitive: true,
-    agents: [],
   });
 
   useEffect(() => {
     retrieveUserData();
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    console.log(userAgents);
+  }, [userAgents]);
 
   const retrieveUserData = async () => {
     const checkUser = (
@@ -31,6 +34,7 @@ function Profile() {
       addUserToDatabase();
     } else {
       setUserData(checkUser);
+      setUserAgents(checkUser.agents);
     }
   };
 
@@ -61,6 +65,10 @@ function Profile() {
     onSubmit: (values) => {
       values.discordData = user;
       values.agents = userAgents;
+      userData.competitive = values.competitive;
+      userData.description = values.description;
+      userData.rank = values.rank;
+      userData.riotId = values.riotId;
       saveProfileToDatabase(values);
       toggleEdit();
     },
@@ -80,7 +88,7 @@ function Profile() {
         <h2>Description: {userData.description}</h2>
         <h2>
           Agents:{" "}
-          {userData.agents.map((agent) => {
+          {userAgents.map((agent) => {
             return agent + " ";
           })}
         </h2>

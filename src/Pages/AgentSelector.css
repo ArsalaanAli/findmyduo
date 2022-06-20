@@ -10,10 +10,10 @@
   cursor: pointer;
 }
 .highlightedBox {
-  border: 3px solid yellow;
+  border: 3px solid red;
 }
 .agentBox:hover {
-  border: 3px solid red;
+  border: 3px solid grey;
 }
 .agentImage {
   width: 40%;
