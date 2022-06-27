@@ -1,8 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@100&display=swap");
+
 :root {
   --primary: #fa4753;
   --solid: #161616;
 }
-
+body {
+  font-family: "Lato";
+}
 li {
   list-style: none;
 }
@@ -49,7 +53,6 @@ a {
   display: inline-block;
   position: relative;
   font-size: 1.6rem;
-  font-weight: 400;
   color: #fff;
 }
 .nav-link:after {
@@ -71,13 +74,9 @@ a {
 }
 
 .nav-logo {
-  font-size: 2.1rem;
-  font-weight: 500;
-  color: #fff;
-}
-.nav-logo {
-  font-size: 2.1rem;
-  font-weight: 500;
+  font-size: 2.4rem;
+  margin: 0;
+  padding: 0;
   color: #fff;
 }
 .nav-logo:after {

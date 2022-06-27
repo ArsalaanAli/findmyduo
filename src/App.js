@@ -6,6 +6,7 @@ import Navbar from "./Pages/Navbar";
 import Frontpage from "./Pages/Frontpage";
 import Login from "./Pages/Login";
 import Profile from "./Pages/Profile";
+import Duo from "./Pages/Duo";
 import { UserContext } from "./Utilities/UserContext";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Frontpage />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/duo" element={<Duo />}></Route>
           </Routes>
         </UserContext.Provider>
       </BrowserRouter>

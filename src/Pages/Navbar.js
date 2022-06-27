@@ -21,10 +21,10 @@ function Navbar() {
   const toggleNav = () => {
     setNavActive(!navActive);
   };
-  const navFalse = () => {
-    console.log("asd");
-    setNavActive(false);
-  };
+  // const navFalse = () => {
+  //   console.log("asd");
+  //   setNavActive(false);
+  // };
   if (loggedIn) {
     return (
       <header className="header">
@@ -34,7 +34,7 @@ function Navbar() {
           </Link>
           <ul className={"nav-menu" + (navActive ? " active" : "")}>
             <li className="nav-item">
-              <Link to="/#" className="nav-link">
+              <Link to="/duo" className="nav-link">
                 FIND A DUO
               </Link>
             </li>
