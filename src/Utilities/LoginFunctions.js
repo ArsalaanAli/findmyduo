@@ -4,7 +4,7 @@ function AttempLogin(loggedIn, setUser, searchParams, setSearchParams) {
   const { REACT_APP_SECRET, REACT_APP_CLIENT_ID } = process.env;
   const url = window.location.href;
 
-  if (url.includes("?") && !loggedIn.current) {
+  if (searchParams === null || (url.includes("?") && !loggedIn.current)) {
     const params = new URL(url);
     const code = params.searchParams.get("code");
     GetDiscordData(

@@ -18,8 +18,7 @@ function Frontpage(props) {
   return (
     <div className="container">
       <div className="titleHolder">
-        <p className="title">TIRED OF TOXIC TEAMMATES?</p>
-        <h1 className="subtitle">HERE IS THE SUBTITLE WHICH IS LONGER</h1>
+        <p className="title">LOREM IPSUM</p>
       </div>
       <div className="imgHolder">
         <img src={render} className="render" alt="jett and phoenix" />

@@ -1,4 +1,33 @@
 .title {
   font-family: "Lato";
   text-align: center;
+  font-size: 4rem;
+  margin: 1em;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.duoTable th {
+  background-color: var(--primary);
+  color: #ffffff;
+  text-align: left;
+  border: none;
+}
+.duoTable tr:nth-of-type(even) {
+  background-color: var(--solid);
+  color: white;
+}
+
+.duoTable td,
+th {
+  padding: 32px;
+  text-align: left;
 }
