@@ -43,6 +43,7 @@ export default function GetDiscordData(
     if (!("username" in userData)) {
       return;
     }
+    console.log(userData);
     setUser(userData);
     sessionStorage.setItem("user", JSON.stringify(userData));
   };

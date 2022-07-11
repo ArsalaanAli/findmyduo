@@ -1,22 +1,20 @@
 import { React, useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { UserContext } from "../Utilities/UserContext";
+import AttempLogin from "../Utilities/LoginFunctions";
 import "./nav.css";
 
 //https://cdn.discordapp.com/avatars/{user_id}/{user_avatar}.png
 
 function Navbar() {
   const [navActive, setNavActive] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
-  const user = useContext(UserContext)[0];
+  const [user, setUser] = useContext(UserContext);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    if (user === null) {
-      setLoggedIn(false);
-    } else {
-      setLoggedIn(true);
-    }
-  }, [user]);
+    AttempLogin(user !== null, setUser, searchParams, setSearchParams);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const toggleNav = () => {
     setNavActive(!navActive);
@@ -25,7 +23,7 @@ function Navbar() {
   //   console.log("asd");
   //   setNavActive(false);
   // };
-  if (loggedIn) {
+  if (user !== null) {
     return (
       <header className="header">
         <nav className="navbar">
