@@ -1,17 +1,37 @@
 .container {
-}
-.modalContainer {
-  position: fixed;
-  top: 7em;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
   border: 1px solid red;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
-  flex-direction: column;
 }
+
+.postButton {
+  height: 3em;
+  width: 4em;
+  margin-top: 2em;
+}
+
+.closeButton {
+  height: 3em;
+  width: 4em;
+  margin-top: 2em;
+}
+
 .modal {
-  display: none;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  border: 1px solid blue;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.modal.show {
+  pointer-events: auto;
+  opacity: 1;
+  border: 1px solid green;
 }
