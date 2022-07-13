@@ -1,0 +1,17 @@
+.container {
+}
+.modalContainer {
+  position: fixed;
+  top: 7em;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.modal {
+  display: none;
+}

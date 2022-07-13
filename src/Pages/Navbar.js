@@ -79,7 +79,7 @@ function Navbar() {
           </Link>
           <ul className={"nav-menu" + (navActive ? " active" : "")}>
             <li className="nav-item">
-              <Link to="/#" className="nav-link">
+              <Link to="/duo" className="nav-link">
                 FIND A DUO
               </Link>
             </li>
